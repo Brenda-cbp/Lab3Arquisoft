@@ -11,7 +11,7 @@ def get_measurement(identificador: int):
 def delete_measurement(identificador: int):
     measurement= get_measurement(identificador)
     measurement.delete()
-    return ("Eliminado Correctamente")
+    return measurement
 
 def update_measurement(identificador: int, propiedad:str, valor):
     measurement= get_measurement(identificador)

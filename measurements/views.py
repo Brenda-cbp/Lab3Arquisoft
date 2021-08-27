@@ -15,9 +15,11 @@ def get_measurement(request, id):
     return HttpResponse(measurement_rta, content_type='application/json')
 
 def delete_measurement(request, id):
-    return HttpResponse(logic_measurement.delete_measurement(id))
+    measurement = logic_measurement.delete_measurement(id)
+    measurement_rta= serializers.serialize('json', measurement)
+    return HttpResponse(measurement_rta, content_type='application/json')
 
 def update_measurement(request,id):
-    measurement = logic_measurement.update_measurement(id, "value", 11500 )
+    measurement = logic_measurement.update_measurement(id, "value", 3 )
     measurement_rta= serializers.serialize('json', measurement)
     return HttpResponse(measurement_rta, content_type='application/json');
